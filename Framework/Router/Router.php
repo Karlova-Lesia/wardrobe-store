@@ -19,15 +19,14 @@ class Router
         return (!empty($_SERVER['REQUEST_URI'])) ? trim($_SERVER['REQUEST_URI'], '/') : false;
     }
 
-    public function run()
+    public function run(): void
     {
         $uri = $this->getURI();
 
         foreach ($this->routes as $uriPattern => $path) {
             if (preg_match("~$uriPattern~", $uri)) {
                 $segments = explode('/', $path);
-                $controllerName = array_shift($segments).'Controller';
-                $controllerName = ucfirst($controllerName);
+                $controllerName = ucfirst(array_shift($segments).'Controller');
                 $actionName = 'action'.ucfirst(array_shift($segments));
 
                 $controllerFile = ROOT.'/App/Controller/'.$controllerName.'.php';
