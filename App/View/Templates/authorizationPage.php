@@ -16,18 +16,25 @@
             width: 50%;
             height: 700px;
         }
+        .link {
+            color: dimgrey;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
     <?php
-    include_once "commons/header.html";
+    include_once "/home/lesia/Desktop/wardrobe/App/View/Layouts/commons/header.html";
     ?>
     <div class="row">
-       <div class="col-md-4"><?php
-           include_once "commons/navigation.html";
+       <div class="col-md-2"><?php
+           include_once "/home/lesia/Desktop/wardrobe/App/View/Layouts/commons/navigation.html";
            ?></div>
+        <div class="col-md-3"></div>
         <div class="col-md-5">
-            <form class="form">
+            <form class="form"  method="post">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -40,12 +47,15 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Запам'ятай мене</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Увійти</button>
+                <div>
+                    <button type="submit" class="btn btn-outline-secondary">Увійти</button>
+                </div>
+                <a class="link" href="#">зареєструватись</a>
             </form>
         </div>
     </div>
     <?php
-    include_once "commons/footer.html";
+    include_once "/home/lesia/Desktop/wardrobe/App/View/Layouts/commons/footer.html";
     ?>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
