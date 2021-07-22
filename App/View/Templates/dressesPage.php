@@ -33,7 +33,8 @@ include_once "../Layouts/commons/header.html";
             include_once "../App/Models/Dresses.php";
             foreach ($dressesList as $dress):?>
                 <div class="col-md-3">
-                    <a href="#"><img src="" alt="альтернативный текст"></a>
+                    <a href="#"><img src="" alt="текст"></a>
+                    <p><a href="/dresses/<?php echo $dress['id'];?>"></a></p>
                     <p><?php echo $dress['description'];?></p>
                     <p><?php echo $dress['size'];?></p>
                     <p><?php echo $dress['price'];?></p>
