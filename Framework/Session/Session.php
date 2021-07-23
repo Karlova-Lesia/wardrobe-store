@@ -39,6 +39,7 @@ class Session
             session_start();
             return true;
         }
+        return false;
     }
 
     public function destroy(): void
