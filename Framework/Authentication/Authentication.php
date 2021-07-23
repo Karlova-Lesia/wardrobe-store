@@ -14,10 +14,11 @@ class Authentication
 
     public function auth(string $email, string $password): bool
     {
-        if ($this->email = $email && $this->password = $password) {
+        if ($this->email = 'user@gmail.com' && $this->password = 'user') {
             $_SESSION['user'] = $email;
             return true;
         }
+        return false;
     }
 
     public function getLogin()

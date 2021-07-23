@@ -34,7 +34,7 @@
            ?></div>
         <div class="col-md-3"></div>
         <div class="col-md-5">
-            <form class="form"  method="post">
+            <form class="form"  method="post" action="">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -50,7 +50,7 @@
                 <div>
                     <button type="submit" class="btn btn-outline-secondary">Увійти</button>
                 </div>
-                <a class="link" href="#">зареєструватись</a>
+                <a class="link" href="/registration.php">зареєструватись</a>
             </form>
         </div>
     </div>
