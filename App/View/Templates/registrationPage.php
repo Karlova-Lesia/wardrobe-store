@@ -34,35 +34,35 @@ include_once "/home/lesia/Desktop/wardrobe/App/View/Layouts/commons/header.html"
         ?></div>
     <div class="col-md-3"></div>
     <div class="col-md-5">
-        <form class="form"  method="post">
+        <form class="form"  method="post" action="" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Ім'я</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <input type="text" name="name" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Прізвище</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
+                <input type="text" name="last_name" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Підтвердіть пароль</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" name="password_confirm" class="form-control" id="exampleInputPassword1">
             </div>
             <div>
                 <button type="submit" class="btn btn-outline-secondary">Зареєструватись</button>
             </div>
-            <a class="link" href="#">вже зареєстровані?</a>
+            <a class="link" href="/authorization.php">вже зареєстровані?</a>
         </form>
     </div>
 </div>
-<?php
+<?
 include_once "/home/lesia/Desktop/wardrobe/App/View/Layouts/commons/footer.html";
 ?>
 <script
