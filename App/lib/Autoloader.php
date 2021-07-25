@@ -9,5 +9,6 @@ class Autoloader
         if (file_exists($path)) {
             require_once ($path);
         }
+        spl_autoload_register(['App\lib\Autoloader', 'autoload']);
     }
 }
