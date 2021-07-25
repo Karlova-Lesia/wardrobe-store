@@ -9,8 +9,6 @@ error_reporting(E_ALL);
  require_once '../Framework/Session/Session.php';
 
 
-// spl_autoload_register(['App\lib\Autoloader', 'autoload']);
-
  $session = new Session();
  $session->start();
 
