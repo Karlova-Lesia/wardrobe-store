@@ -1,7 +1,7 @@
 <!DOCTYPE html>
  <?php
     include_once "../App/Models/Dresses.php";
-?>
+    ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,12 +26,12 @@ include_once "../Layouts/commons/header.html";
 <div class="row">
     <div class="col-md-2"><?php
         include_once "../Layouts/commons/navigation.html";
-        ?></div>
+    ?></div>
     <div class="blockDresses">
         <div class="row">
             <?php
             include_once "../App/Models/Dresses.php";
-            foreach ($dressesList as $dress):?>
+            foreach (getDressesList::$dressesList as $dress) :?>
                 <div class="col-md-3">
                     <a href="#"><img src="" alt="текст"></a>
                     <p><a href="/dresses/<?php echo $dress['id'];?>"></a></p>
@@ -40,7 +40,7 @@ include_once "../Layouts/commons/header.html";
                     <p><?php echo $dress['price'];?></p>
                 </div>
         </div>
-        <?php endforeach;?>
+            <?php endforeach;?>
     </div>
 </div>
 <?php
