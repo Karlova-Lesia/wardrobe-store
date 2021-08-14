@@ -5,9 +5,5 @@ error_reporting(E_ALL);
 
  require_once '../vendor/autoload.php';
 
-
- $session = new Session();
- $session->start();
-
  $router = new Router();
  $router->run();
