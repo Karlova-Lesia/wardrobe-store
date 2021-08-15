@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'db42e63e626b304debc45ebdd5678e594878ce99',
+        'reference' => 'f3eefc3daaf8c75df4f8d45d9ec5d87a90fed888',
         'name' => 'lesia/wardrobe',
         'dev' => true,
     ),
@@ -61,7 +61,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'db42e63e626b304debc45ebdd5678e594878ce99',
+            'reference' => 'f3eefc3daaf8c75df4f8d45d9ec5d87a90fed888',
             'dev_requirement' => false,
         ),
         'monolog/monolog' => array(
