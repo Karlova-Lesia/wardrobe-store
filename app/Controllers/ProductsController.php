@@ -2,26 +2,36 @@
 
 namespace App\Controllers;
 
-use App\Models\Dresses;
+use App\Models\Products;
 
 class ProductsController
 {
     public function actionList()
     {
-        $dressesList = Dresses::getDressesList();
+        $productsList = Products::getProductsList();
 
         echo '<pre>';
-        print_r($dressesList);
+        print_r($productsList);
         echo '<pre>';
     }
 
-    public function actionOneDress(int $id)
+    public function actionOneCategoryList($category)
     {
-        if ($id) {
-            $dress = Dresses::getDressById($id);
+        if ($category) {
+            $oneCategoryList = Products::getProductListByName($category);
         }
         echo '<pre>';
-        print_r($dress);
+        print_r($oneCategoryList);
+        echo '<pre>';
+    }
+
+    public function actionOneProduct(int $id)
+    {
+        if ($id) {
+            $product = Products::getProductById($id);
+        }
+        echo '<pre>';
+        print_r($product);
         echo '<pre>';
     }
 }
