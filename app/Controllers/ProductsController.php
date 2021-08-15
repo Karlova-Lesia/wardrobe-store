@@ -6,7 +6,7 @@ use App\Models\Products;
 
 class ProductsController
 {
-    public function actionList()
+    public static function actionList()
     {
         $productsList = Products::getProductsList();
 
@@ -15,7 +15,7 @@ class ProductsController
         echo '<pre>';
     }
 
-    public function actionOneCategoryList($category)
+    public static function actionOneCategoryList($category)
     {
         if ($category) {
             $oneCategoryList = Products::getProductListByName($category);
@@ -25,7 +25,7 @@ class ProductsController
         echo '<pre>';
     }
 
-    public function actionOneProduct(int $id)
+    public static function actionOneProduct(int $id)
     {
         if ($id) {
             $product = Products::getProductById($id);
