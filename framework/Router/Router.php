@@ -4,11 +4,11 @@ namespace Framework\Router;
 
 class Router
 {
-    private $routes;
+    private array $routes;
 
     public function __construct()
     {
-        $routesPath = '../App/config/routes.php';
+        $routesPath = '../app/config/routes.php';
         $this->routes = include($routesPath); //include array of paths
     }
 
@@ -32,20 +32,15 @@ class Router
                 $segments = explode('/', $innerRoute);
                 $controllerName = ucfirst(array_shift($segments) . 'Controller');
                 $actionName = 'action' . ucfirst(array_shift($segments));
-                $id = array_shift($segments);
+                $id = $segments;
 //              include controller class
 
-                $controllerFile = '../App/Controllers/' . $controllerName . '.php';
-                if (file_exists($controllerFile)) {
-                    include_once($controllerFile);
-                }
-
-//                create an object controller class
-
-                $controllerObject = new $controllerName();
-                $result = $controllerObject->$actionName($id);
-                if (!empty($result)) {
-                    break;
+                if (class_exists($controllerName)) {
+                    $controllerObject = new $controllerName();
+                    $result = call_user_func_array([$controllerObject, $actionName],  $id);
+                    if (!empty($result)) {
+                        break;
+                    }
                 }
             }
         }
