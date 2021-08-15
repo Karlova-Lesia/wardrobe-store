@@ -1,6 +1,9 @@
 <?php
 
-include_once '../Framework/Database/Db.php';
+namespace App\Models;
+
+use Framework\Database\Db;
+
 class Dresses
 {
     public static function getDressesList()
@@ -24,12 +27,11 @@ class Dresses
     {
         if ($id) {
             $db = Db::getConnection();
-            $result = $db->query('SELECT * FROM dresses WHERE id ='. $id);
+            $result = $db->query('SELECT * FROM dresses WHERE id =' . $id);
             $result->setFetchMode(PDO::FETCH_ASSOC);
             $dress = $result->fetch();
 
             return $dress;
         }
     }
-
 }

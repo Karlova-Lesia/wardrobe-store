@@ -1,6 +1,9 @@
 <?php
 
-include_once '../App/Models/Dresses.php';
+namespace App\Controllers;
+
+use App\Models\Dresses;
+
 class DressesController
 {
     public function actionList()
