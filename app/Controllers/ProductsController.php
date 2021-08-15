@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Dresses;
 
-class DressesController
+class ProductsController
 {
     public function actionList()
     {

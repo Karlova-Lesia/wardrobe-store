@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f3eefc3daaf8c75df4f8d45d9ec5d87a90fed888',
+        'reference' => '4dd290f76025d678bf823614422514a1b78b31b8',
         'name' => 'lesia/wardrobe',
         'dev' => true,
     ),
@@ -61,7 +61,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f3eefc3daaf8c75df4f8d45d9ec5d87a90fed888',
+            'reference' => '4dd290f76025d678bf823614422514a1b78b31b8',
             'dev_requirement' => false,
         ),
         'monolog/monolog' => array(
@@ -127,8 +127,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0.0',
-                1 => '1.0|2.0',
+                0 => '1.0|2.0',
+                1 => '1.0.0',
             ),
         ),
         'squizlabs/php_codesniffer' => array(
