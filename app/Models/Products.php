@@ -6,33 +6,31 @@ use Framework\Database\Db;
 
 class Products
 {
-    public static function getProductsList()
+    public static function getProductsList(): array
     {
         $db = (new Products)->dbConnection();
-        $result = $db->query('SELECT * FROM dresses');
+        $result = $db->query('SELECT * FROM products');
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        return $result->fetchAll();
 
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $productsList[$i]['id'] = $row['id'];
-            $productsList[$i]['description'] = $row['description'];
-            $productsList[$i]['size'] = $row['size'];
-            $productsList[$i]['price'] = $row['price'];
-            $i++;
-        }
-
-        return $productsList;
     }
 
-    public static function getProductById(int $id)
+    public static function getProductListByName(int $name): array
     {
-        if ($id) {
-            $db = (new Products)->dbConnection();
-            $result = $db->query('SELECT * FROM dresses WHERE id =' . $id);
-            $result->setFetchMode(PDO::FETCH_ASSOC);
-            $product = $result->fetch();
+        $db = (new Products)->dbConnection();
+        $result = $db->query('SELECT * FROM products WHERE name =' . $name);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        return $result->fetchAll();
 
-            return $product;
-        }
+    }
+
+    public static function getProductById(int $id): object
+    {
+        $db = (new Products)->dbConnection();
+        $result = $db->query('SELECT * FROM products WHERE id =' . $id);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        return $result->fetch();
+
     }
 
     private function dbConnection(): object
