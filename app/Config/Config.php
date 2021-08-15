@@ -8,7 +8,7 @@ class Config
     {
         return [
             'templates' => [
-                'path' => '../templates/',
+                'path' => '../app/View/Templates/',
             ],
         ];
     }
