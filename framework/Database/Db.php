@@ -12,4 +12,3 @@ class Db
         return new PDO($dsn, $params['user'], $params['password']);
     }
 }
-
