@@ -4,33 +4,30 @@ namespace App\Models;
 
 use Framework\Database\Db;
 
-class Products
+class Product
 {
-    public static function getProductsList(): array
+    public function getProductsList(): Product
     {
-        $db = (new Products)->dbConnection();
+        $db = $this->dbConnection();
         $result = $db->query('SELECT * FROM products');
         $result->setFetchMode(PDO::FETCH_ASSOC);
         return $result->fetchAll();
-
     }
 
-    public static function getProductListByName(int $name): array
+    public function getProductListByName(int $name): Product
     {
-        $db = (new Products)->dbConnection();
+        $db = $this->dbConnection();
         $result = $db->query('SELECT * FROM products WHERE name =' . $name);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         return $result->fetchAll();
-
     }
 
-    public static function getProductById(int $id): object
+    public function getProductById(int $id): Product
     {
-        $db = (new Products)->dbConnection();
+        $db = $this->dbConnection();
         $result = $db->query('SELECT * FROM products WHERE id =' . $id);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         return $result->fetch();
-
     }
 
     private function dbConnection(): object
