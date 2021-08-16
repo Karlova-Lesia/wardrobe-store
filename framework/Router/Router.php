@@ -5,10 +5,14 @@ namespace Framework\Router;
 class Router
 {
     private array $routes;
+    private string $controllerName = '';
+    private string $actionName = '';
+    private array $params;
+
 
     public function __construct()
     {
-        $routesPath = '../app/Config/Routes.php';
+        $routesPath = '../app/Config/routes.php';
         $this->routes = include($routesPath); //include array of paths
     }
 
@@ -30,19 +34,25 @@ class Router
             if (preg_match("~$uriPattern~", $uri)) {
                 $innerRoute = preg_replace("~$uriPattern~", $path, $uri);
                 $segments = explode('/', $innerRoute);
-                $controllerName = ucfirst(array_shift($segments) . 'Controller');
-                $actionName = 'action' . ucfirst(array_shift($segments));
-                $id = $segments;
-//              include controller class
-
-                if (class_exists($controllerName)) {
-                    $controllerObject = new $controllerName();
-                    $result = call_user_func_array([$controllerObject, $actionName],  $id);
-                    if (!empty($result)) {
-                        break;
-                    }
-                }
+                $this->controllerName = ucfirst(array_shift($segments) . 'Controller');
+                $this->actionName = 'action' . ucfirst(array_shift($segments));
+                $this->params = $segments;
             }
         }
+    }
+
+    public function getControllerName(): string
+    {
+        return $this->controllerName;
+    }
+
+    public function getActionName(): string
+    {
+        return $this->actionName;
+    }
+
+    public function getParams(): array
+    {
+        return $this->params;
     }
 }
