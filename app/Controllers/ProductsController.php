@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Models\Products;
+use App\Models\Product;
 
 class ProductsController
 {
     public static function actionList()
     {
-        $productsList = Products::getProductsList();
+        $productsList = (new Product)->getProductsList();
 
         echo '<pre>';
         print_r($productsList);
@@ -18,7 +18,7 @@ class ProductsController
     public static function actionOneCategoryList($category)
     {
         if ($category) {
-            $oneCategoryList = Products::getProductListByName($category);
+            $oneCategoryList = (new Product)->getProductListByName($category);
         }
         echo '<pre>';
         print_r($oneCategoryList);
@@ -28,7 +28,7 @@ class ProductsController
     public static function actionOneProduct(int $id)
     {
         if ($id) {
-            $product = Products::getProductById($id);
+            $product = (new Product)->getProductById($id);
         }
         echo '<pre>';
         print_r($product);
