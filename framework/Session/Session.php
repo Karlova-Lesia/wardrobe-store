@@ -1,75 +1,138 @@
 <?php
+namespace Framework\Session;
 
+use Exception;
 
 class Session
 {
-    public function setName(string $name): void
+    /**
+     * @throws Exception
+     */
+    public static function setName(string $name): void
     {
+        if (!self::sessionExists()) {
+            throw new Exception('Session is not exists yet');
+        }
         session_name($name);
     }
 
-    public function getName(): string
+    /**
+     * @throws Exception
+     */
+    public static function getName(): string
     {
+        if (!self::sessionExists()) {
+            throw new Exception('Session is not exists yet');
+        }
         return session_name();
     }
 
-    public function setId(string $id): void
+    /**
+     * @throws Exception
+     */
+    public static function setId(string $id): void
     {
-        session_id($id);
+        if (!self::sessionExists()) {
+            throw new Exception('Session is not exists yet');
+        }
+        session_name($id);
     }
 
-    public function getId(): string
+    /**
+     * @throws Exception
+     */
+    public static function getId(): string
     {
-        return session_id();
+        if (!self::sessionExists()) {
+            throw new Exception('Session is not exists yet');
+        }
+        return session_name();
     }
 
-    public function cookieExists(): bool
+    public static function cookieExists(): bool
     {
         return (!empty($_COOKIE));
     }
 
-    public function sessionExists(): bool
+    public static function sessionExists(): bool
     {
         return (!empty($_SESSION));
     }
 
-    public function start(): bool
+    /**
+     * @throws Exception
+     */
+    public static function start(): bool
     {
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-            return true;
+        if (self::sessionExists()) {
+            self::destroy();
         }
-        return false;
+        return session_name();
     }
 
-    public function destroy(): void
+    /**
+     * @throws Exception
+     */
+    public static function destroy(): void
     {
+        if (!self::sessionExists()) {
+            throw new Exception('Session is not exists yet');
+        }
         session_destroy();
     }
 
-    public function setSavePath(string $savePath): void
+    /**
+     * @throws Exception
+     */
+    public static function setSavePath(string $savePath): void
     {
+        if (!self::sessionExists()) {
+            throw new Exception('Session is not exists yet');
+        }
         session_save_path($savePath);
     }
 
-    public function set(string $key, string $value): void
+    /**
+     * @throws Exception
+     */
+    public static function set(string $key, string $value): void
     {
+        if (!self::sessionExists()) {
+            throw new Exception('Session is not exists yet');
+        }
         $_SESSION[$key] = $value;
     }
 
-    public function get(string $key): string
+    /**
+     * @throws Exception
+     */
+    public static function get(string $key): string
     {
-       return $_SESSION[$key];
+        if (!self::sessionExists()) {
+            throw new Exception('Session is not exists yet');
+        }
+        return $_SESSION[$key];
     }
 
-    public function contains(string $key): bool
+    /**
+     * @throws Exception
+     */
+    public static function contains(string $key): bool
     {
+        if (!self::sessionExists()) {
+            throw new Exception('Session is not exists yet');
+        }
         return (isset($_SESSION[$key]));
     }
 
-    public function delete(string $key): void
+    /**
+     * @throws Exception
+     */
+    public static function delete(string $key): void
     {
+        if (!self::sessionExists()) {
+            throw new Exception('Session is not exists yet');
+        }
         unset($_SESSION[$key]);
     }
-
 }
