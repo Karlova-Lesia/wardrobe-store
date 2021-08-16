@@ -1,6 +1,6 @@
 <!DOCTYPE html>
  <?php
-    include_once "../App/Models/Dresses.php";
+    include_once "../App/Models/Products.php";
     ?>
 <html lang="en">
 <head>
@@ -30,14 +30,14 @@ include_once "../Layouts/commons/header.html";
     <div class="blockDresses">
         <div class="row">
             <?php
-            include_once "../App/Models/Dresses.php";
-            foreach (getDressesList::$dressesList as $dress) :?>
+            foreach (getProductsList::$productsList as $product) :?>
                 <div class="col-md-3">
                     <a href="#"><img src="" alt="текст"></a>
-                    <p><a href="/dresses/<?php echo $dress['id'];?>"></a></p>
-                    <p><?php echo $dress['description'];?></p>
-                    <p><?php echo $dress['size'];?></p>
-                    <p><?php echo $dress['price'];?></p>
+                    <p><a href="/product/<?php echo $product['id'];?>"></a></p>
+                    <p><?php echo $product['name'];?></p>
+                    <p><?php echo $product['description'];?></p>
+                    <p><?php echo $product['price'];?></p>
+                    <div><?php echo $product['img'];?></div>
                 </div>
         </div>
             <?php endforeach;?>
