@@ -1,33 +1,46 @@
 <?php
 
+namespace Framework\Authentication;
+
+use Exception;
+use Framework\Session\Session;
 
 class Authentication
 {
-    private string $email = 'user@gmail.com';
-    private string $password = 'user';
-
-
     public function isAuth(): bool
     {
-        return isset($_SESSION['user']);
+        return Session::sessionExists();
     }
 
+    /**
+     * @throws Exception
+     */
     public function auth(string $email, string $password): bool
     {
-        if ($this->email = 'user@gmail.com' && $this->password = 'user') {
-            $_SESSION['user'] = $email;
-            return true;
+        $users = require '../storage/users.php';
+        foreach ($users as $user) {
+            if ($user['email'] === $email && $user['password'] === $password) {
+                Session::start();
+                Session::set('email', $email);
+                return true;
+            }
         }
         return false;
     }
 
-    public function getLogin()
+    /**
+     * @throws Exception
+     */
+    public function getLogin(): string
     {
-        return (isset($this->email)) ? $this->email : false;
+        return Session::get('email');
     }
 
+    /**
+     * @throws Exception
+     */
     public function logOut(): void
     {
-        unset($_SESSION['user']);
+        Session::destroy();
     }
 }
