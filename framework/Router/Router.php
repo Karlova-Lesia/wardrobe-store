@@ -28,6 +28,7 @@ class Router
     {
         $uri = $this->getURI();
 
+
 //        check the request
 
         foreach ($this->routes as $uriPattern => $path) {
