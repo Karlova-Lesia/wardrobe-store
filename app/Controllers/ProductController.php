@@ -3,35 +3,28 @@
 namespace App\Controllers;
 
 use App\Models\Product;
+use Framework\Core\Controller;
+use Framework\Core\View;
 
-class ProductController
+class ProductController extends Controller
 {
-    public static function actionList()
+    public function actionList()
     {
-        $productsList = (new Product)->getProductsList();
-
-        echo '<pre>';
-        print_r($productsList);
-        echo '<pre>';
+        $productsList = (new Product())->getProductsList()->productsList;
+        echo View::render('productsPage', ['productsList' => $productsList]);
     }
 
-    public static function actionOneCategoryList($category)
+    public function actionOneProduct(int $id)
     {
-        if ($category) {
-            $oneCategoryList = (new Product)->getProductListByName($category);
-        }
-        echo '<pre>';
-        print_r($oneCategoryList);
-        echo '<pre>';
-    }
+        $product = (new Product())->getProductById($id);
 
-    public static function actionOneProduct(int $id)
-    {
-        if ($id) {
-            $product = (new Product)->getProductById($id);
-        }
         echo '<pre>';
         print_r($product);
         echo '<pre>';
+    }
+
+    private function getArrayWithObject(object $object): array
+    {
+        return (array) $object;
     }
 }
