@@ -100,7 +100,7 @@ include_once "../app/View/Layouts/commons/header.html";
         <?php
 
         foreach ($productsList as $product) :?>
-            <div style="padding-top: 400px; padding-bottom: 400px; padding-right: 50px;">
+            <div style="padding-top: 300px; padding-bottom: 450px; padding-right: 50px;">
                 <?php echo $product['name'];?><br>
                 <div style="color: dimgrey;"> <?php echo $product['description'];?><br>
                     <?php echo $product['price'];?> грн<br></div>
