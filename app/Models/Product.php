@@ -3,35 +3,60 @@
 namespace App\Models;
 
 use Framework\Database\Db;
+use Exception;
 
 class Product
 {
     public array $productsList;
-    private array $product;
+    public array $oneCategoryList;
+    public array $product;
 
     public function getProductsList(): Product
     {
         $db = $this->dbConnection();
         $result = $db->query('SELECT id, name, description, price, image FROM products');
+        $result->execute();
+        $this->productsList = $result->fetchAll();
 
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $this->productsList[$i]['id'] = $row['id'];
-            $this->productsList[$i]['name'] = $row['name'];
-            $this->productsList[$i]['description'] = $row['description'];
-            $this->productsList[$i]['price'] = $row['price'];
-            $this->productsList[$i]['image'] = $row['image'];
-            $i++;
-        }
         return $this;
     }
 
+    /**
+     * @throws Exception
+     */
     public function getProductById(int $id): Product
     {
         $db = $this->dbConnection();
-        $data = $db->query("SELECT id, name, description, price, image FROM products WHERE id = $id ");
-        $data->setFetchMode(\PDO::FETCH_ASSOC);
-        $this->product = $data->fetch();
+        if (!$id) {
+            throw new Exception("Product with $id don`t found");
+        }
+        try {
+            $data = $db->query('SELECT id, name, description, price, image FROM products WHERE id = ' . $id);
+            $data->setFetchMode(\PDO::FETCH_ASSOC);
+            $this->product = $data->fetch();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        return $this;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function getOneCategory(string $img): Product
+    {
+        $db = $this->dbConnection();
+        if (!$img) {
+            throw new Exception("Category $img don`t found");
+        }
+        try {
+            $data = $db->query("SELECT id, name, description, price, image FROM products WHERE image LIKE '%$img%' ");
+            $data->execute();
+            $this->oneCategoryList = $data->fetchAll();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
         return $this;
     }
 
