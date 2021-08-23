@@ -10,8 +10,17 @@ class Product
     {
         $db = $this->dbConnection();
         $result = $db->query('SELECT * FROM products');
-        $result->setFetchMode(PDO::FETCH_ASSOC);
-        return $result->fetchAll();
+        $productList = new Product();
+        $i = 0;
+        while ($row = $result->fetch()) {
+            $productList[$i]['id'] = $row['id'];
+            $productList[$i]['name'] = $row['name'];
+            $productList[$i]['description'] = $row['description'];
+            $productList[$i]['price'] = $row['price'];
+            $productList[$i]['image'] = $row['image'];
+            $i++;
+        }
+        return $productList;
     }
 
     public function getProductListByName(int $name): Product
@@ -19,6 +28,7 @@ class Product
         $db = $this->dbConnection();
         $result = $db->query('SELECT * FROM products WHERE name =' . $name);
         $result->setFetchMode(PDO::FETCH_ASSOC);
+        var_dump($result->fetchAll());
         return $result->fetchAll();
     }
 

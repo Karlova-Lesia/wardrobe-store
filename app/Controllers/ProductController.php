@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Product;
 
-class ProductsController
+class ProductController
 {
     public static function actionList()
     {

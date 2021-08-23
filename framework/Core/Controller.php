@@ -1,13 +1,13 @@
 <?php
 
-namespace Framework\Helpers;
+namespace App\Controllers;
 
 use App\Config\Config;
 use http\Exception\InvalidArgumentException;
 
-class ChangePages
+class Controller
 {
-    public static function render(string $templateName): string
+    protected function render(string $templateName): string
     {
         ob_start();
         $file = Config::getConfig()['templates']['path']."{$templateName}.php";
@@ -19,12 +19,5 @@ class ChangePages
         include $file;
 
         return ob_get_clean();
-    }
-
-    public static function redirect(string $url): void
-    {
-        ob_start();
-        header("Location: {$url}");
-        ob_end_flush();
     }
 }
