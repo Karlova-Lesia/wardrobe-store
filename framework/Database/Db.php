@@ -2,13 +2,15 @@
 
 namespace Framework\Database;
 
+use App\Config\Config;
+
 class Db
 {
     public static function getConnection(): object
     {
-        $params = include '../app/config/dbParams.php';
+        $params = Config::getConfig();
 
-        $dsn = "mysql:host={$params['host']};dbname={$params['dbname']}";
-        return new PDO($dsn, $params['user'], $params['password']);
+        $dsn = "mysql:host={$params['db']['host']};dbname={$params['db']['dbname']}";
+        return new \PDO($dsn, $params['db']['user'], $params['db']['password']);
     }
 }
