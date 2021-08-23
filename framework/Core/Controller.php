@@ -1,23 +1,16 @@
 <?php
 
-namespace App\Controllers;
+namespace Framework\Core;
 
 use App\Config\Config;
-use http\Exception\InvalidArgumentException;
+use Exception;
 
 class Controller
 {
-    protected function render(string $templateName): string
+    protected function redirect(string $url): void
     {
         ob_start();
-        $file = Config::getConfig()['templates']['path']."{$templateName}.php";
-
-        if (!file_exists($file)) {
-            throw new InvalidArgumentException("File don`t exist {$templateName}");
-        }
-
-        include $file;
-
-        return ob_get_clean();
+        header("Location:$url");
+        ob_end_flush();
     }
 }
