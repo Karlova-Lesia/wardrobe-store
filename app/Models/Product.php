@@ -6,38 +6,33 @@ use Framework\Database\Db;
 
 class Product
 {
+    public array $productsList;
+    private array $product;
+
     public function getProductsList(): Product
     {
         $db = $this->dbConnection();
-        $result = $db->query('SELECT * FROM products');
-        $productList = new Product();
+        $result = $db->query('SELECT id, name, description, price, image FROM products');
+
         $i = 0;
         while ($row = $result->fetch()) {
-            $productList[$i]['id'] = $row['id'];
-            $productList[$i]['name'] = $row['name'];
-            $productList[$i]['description'] = $row['description'];
-            $productList[$i]['price'] = $row['price'];
-            $productList[$i]['image'] = $row['image'];
+            $this->productsList[$i]['id'] = $row['id'];
+            $this->productsList[$i]['name'] = $row['name'];
+            $this->productsList[$i]['description'] = $row['description'];
+            $this->productsList[$i]['price'] = $row['price'];
+            $this->productsList[$i]['image'] = $row['image'];
             $i++;
         }
-        return $productList;
-    }
-
-    public function getProductListByName(int $name): Product
-    {
-        $db = $this->dbConnection();
-        $result = $db->query('SELECT * FROM products WHERE name =' . $name);
-        $result->setFetchMode(PDO::FETCH_ASSOC);
-        var_dump($result->fetchAll());
-        return $result->fetchAll();
+        return $this;
     }
 
     public function getProductById(int $id): Product
     {
         $db = $this->dbConnection();
-        $result = $db->query('SELECT * FROM products WHERE id =' . $id);
-        $result->setFetchMode(PDO::FETCH_ASSOC);
-        return $result->fetch();
+        $data = $db->query("SELECT id, name, description, price, image FROM products WHERE id = $id ");
+        $data->setFetchMode(\PDO::FETCH_ASSOC);
+        $this->product = $data->fetch();
+        return $this;
     }
 
     private function dbConnection(): object
