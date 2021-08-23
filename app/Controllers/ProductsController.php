@@ -6,7 +6,7 @@ use App\Models\Product;
 use Framework\Core\Controller;
 use Framework\Core\View;
 
-class ProductController extends Controller
+class ProductsController extends Controller
 {
     public function actionList()
     {
