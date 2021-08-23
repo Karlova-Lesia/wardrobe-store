@@ -4,7 +4,7 @@ namespace Framework\Core;
 
 class Controller
 {
-    public static function redirect(string $url): void
+    protected function redirect(string $url): void
     {
         ob_start();
         header("Location:$url");
