@@ -3,26 +3,26 @@
 namespace App\Controllers;
 
 use Framework\Authentication\Authentication;
-use Framework\Helpers\ChangePages;
+use Framework\Core\View;
 
 class AuthorizationController
 {
-    public static function index(): void
+    public static function actionIndex(): void
     {
-        ChangePages::render('authorizationPage');
+        echo View::render('authorizationPage', []);
     }
 
     public static function login(array $user): void
     {
         if (Authentication::auth($user['email'], $user['password'])) {
-            ChangePages::render('/');
+            View::render('/', []);
         }
-        ChangePages::render('/authorizationPage');
+        View::render('/authorizationPage', []);
     }
 
     public static function logout(): void
     {
         Authentication::logOut();
-        ChangePages::render('/');
+        View::render('/', []);
     }
 }
