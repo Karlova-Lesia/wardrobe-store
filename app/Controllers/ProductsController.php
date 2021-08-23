@@ -8,23 +8,27 @@ use Framework\Core\View;
 
 class ProductsController extends Controller
 {
-    public function actionList()
+    public function actionList(): void
     {
         $productsList = (new Product())->getProductsList()->productsList;
         echo View::render('productsPage', ['productsList' => $productsList]);
     }
 
-    public function actionOneProduct(int $id)
+    /**
+     * @throws \Exception
+     */
+    public function actionOneProduct(int $id): void
     {
-        $product = (new Product())->getProductById($id);
-
-        echo '<pre>';
-        print_r($product);
-        echo '<pre>';
+        $product = (new Product())->getProductById($id)->product;
+        echo View::render('oneProductPage', ['product' => $product]);
     }
 
-    private function getArrayWithObject(object $object): array
+    /**
+     * @throws \Exception
+     */
+    public function actionOneCategory(string $img): void
     {
-        return (array) $object;
+        $oneCategoryList = (new Product())->getOneCategory($img)->oneCategoryList;
+        echo View::render('oneCategoryPage', ['oneCategoryList' => $oneCategoryList]);
     }
 }
