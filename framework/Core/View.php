@@ -3,6 +3,7 @@
 namespace Framework\Core;
 
 use App\Config\Config;
+use Exception;
 
 class View
 {
