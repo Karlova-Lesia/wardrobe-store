@@ -78,11 +78,11 @@
 </head>
 <body>
 <?php
-include_once "../app/View/Layouts/commons/header.html";
+include_once "../app/View/Layouts/commons/header.php";
 ?>
 <div class="row">
     <div class="col-md-2"><?php
-        include_once "../app/View/Layouts/commons/navigation.html";
+        include_once "../app/View/Layouts/commons/navigation.php";
     ?></div>
     <div class="col-md-1"></div>
     <div class="col-md-8">
@@ -92,7 +92,7 @@ include_once "../app/View/Layouts/commons/header.html";
     </div>
 </div>
 <?php
-include_once "../app/View/Layouts/commons/footer.html";
+include_once "../app/View/Layouts/commons/footer.php";
 ?>
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

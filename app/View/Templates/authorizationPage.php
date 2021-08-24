@@ -89,36 +89,47 @@
 </head>
 <body>
     <?php
-    include_once "../app/View/Layouts/commons/header.html";
+    include_once "../app/View/Layouts/commons/header.php";
     ?>
     <div class="row">
        <div class="col-md-2"><?php
-           include_once "../app/View/Layouts/commons/navigation.html";
-           ?></div>
+           include_once "../app/View/Layouts/commons/navigation.php";
+        ?></div>
         <div class="col-md-3"></div>
-        <div class="col-md-5">
-            <form class="form"  method="post" action="">
+        <div class="col-md-4">
+            <form class="form" method="post" >
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                           aria-describedby="emailHelp" value="<?php echo $email?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                           value="<?php echo $password?>">
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Запам'ятай мене</label>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-outline-secondary">Увійти</button>
+                    <button name="submit" type="submit" class="btn btn-outline-secondary">Увійти</button>
                 </div>
-                <a class="link" href="/registration">зареєструватись</a>
+                <a class="link" href="/user/register">зареєструватись</a>
             </form>
+        </div>
+        <div class="col-md-2" style="margin-top: 150px; float: left;">
+                <?php if (isset($errors) && is_array($errors)) :?>
+                    <ul>
+                        <?php foreach ($errors as $error) :?>
+                            <li style="color: red;"><?php echo $error;?></li>
+                        <?php endforeach;?>
+                    </ul>
+                <?php endif;?>
         </div>
     </div>
     <?php
-    include_once "../app/View/Layouts/commons/footer.html";
+    include_once "../app/View/Layouts/commons/footer.php";
     ?>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
