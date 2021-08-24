@@ -17,15 +17,14 @@ class Authentication
      */
     public function auth(string $email, string $password): bool
     {
-        $users = require '../storage/users.php';
-        foreach ($users as $user) {
-            if ($user['email'] === $email && $user['password'] === $password) {
-                Session::start();
-                Session::set('email', $email);
-                return true;
-            }
-        }
-        return false;
+//        foreach ($users as $user) {
+//            if ($user['email'] === $email && $user['password'] === $password) {
+//                Session::start();
+//                Session::set('email', $email);
+//                return true;
+//            }
+//        }
+//        return false;
     }
 
     /**
