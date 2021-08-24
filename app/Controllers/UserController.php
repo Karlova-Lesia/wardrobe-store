@@ -49,6 +49,7 @@ class RegistrationController
             }
 
             if ($errors === false) {
+                $result = User::register($name, $lastname, $email, $password);
             }
         }
         echo View::render('registrationPage', ['name' => $name, 'lastname' => $lastname,
