@@ -6,6 +6,7 @@ return [
     'products/list' => 'products/list',
     'products/OneCategory/([a-z]+)' => 'products/oneCategory/$1',
     'home' => 'home/index',
-    'authorization' => 'authorization/index',
-    'registration' => 'registration/index',
+    'user/register' => 'user/register',
+    'user/login' => 'user/login',
+    'cabinet' => 'cabinet/index',
 ];
