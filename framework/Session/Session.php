@@ -62,12 +62,12 @@ class Session
     /**
      * @throws Exception
      */
-    public static function start(): bool
+    public static function start()
     {
         if (self::sessionExists()) {
             self::destroy();
         }
-        return session_name();
+        session_start();
     }
 
     /**
