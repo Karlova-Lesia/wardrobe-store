@@ -31,4 +31,9 @@ class ProductsController extends Controller
         $oneCategoryList = (new Product())->getOneCategory($img)->oneCategoryList;
         echo View::render('oneCategoryPage', ['oneCategoryList' => $oneCategoryList]);
     }
+
+    public function actionApiProducts()
+    {
+        echo json_encode((new Product())->getProductsList()->productsList);
+    }
 }
