@@ -1,3 +1,71 @@
+<style>
+    .main-div {
+        height: 70px;
+        background: white;
+        white-space: nowrap;
+    }
+    .child-div {
+        display: inline-block;
+    }
+    .name-store {
+        font-family: Chilanka, sans-serif;
+        padding-right: 10%;
+        font-size: 40px;
+        width: 25%;
+    }
+    .content-addr-info {
+        color: dimgrey;
+        font-family: "JetBrains Mono Light", sans-serif;
+        font-size: 15px;
+    }
+    .align-color {
+        text-align: right;
+        color: dimgrey;
+    }
+    .parent-div {
+        height: 80px;
+        background: lightcoral;
+        white-space: nowrap;
+    }
+    .child-div {
+        display: inline-block;
+    }
+    .align-right {
+        text-align: right;
+    }
+    .name-store {
+        color: dimgrey;
+        font-family: Chilanka, sans-serif;
+        padding-right: 10%;
+        font-size: 40px;
+        width: 25%;
+    }
+    .categories {
+        font-size: 20px;
+    }
+    .search-block {
+        width: 40%;
+    }
+    .search {
+        width: 100% !important;
+    }
+    .icon {
+        width: 5%;
+    }
+    li > a {
+        background-color: lightgrey !important;
+    }
+    .wrapper {
+        display: inline-block;
+        width: 100%;
+    }
+    .btn-group {
+        width: 100%;
+    }
+    .btns {
+        height: 60px;
+    }
+</style>
 <div class="container-fluid parent-div">
     <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
         <div
@@ -102,16 +170,15 @@
             </div>
             <div class="child-div icon align-right">
                 <button
-                        onClick='location.href="http://wardrobe.com/home"'
                         type="button"
                         class="btn btn-outline-secondary"
+                        onClick='location.href="http://wardrobe.com/user/logout"'
                 >
                     <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
                             height="16"
                             fill="currentColor"
-                            href="/user/logout"
                             class="bi bi-unlock"
                             viewBox="0 0 16 16"
                     >

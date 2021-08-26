@@ -1,4 +1,5 @@
 <?php
+
 namespace Framework\Session;
 
 use Exception;
@@ -64,10 +65,9 @@ class Session
      */
     public static function start()
     {
-        if (self::sessionExists()) {
-            self::destroy();
+        if (!self::sessionExists()) {
+            session_start();
         }
-        session_start();
     }
 
     /**
@@ -75,10 +75,9 @@ class Session
      */
     public static function destroy(): void
     {
-        if (!self::sessionExists()) {
-            throw new Exception('Session is not exists yet');
+        if (self::sessionExists()) {
+            session_destroy();
         }
-        session_destroy();
     }
 
     /**

@@ -99,7 +99,7 @@ class UserController extends Controller
     public function actionLogout(): void
     {
         Session::start();
-        Session::delete($_SESSION["user"]);
+        Session::destroy();
         $this->redirect('/home');
     }
 }
