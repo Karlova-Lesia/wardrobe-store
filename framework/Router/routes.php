@@ -2,6 +2,8 @@
 
 return [
  //actionList in ProductController
+    'products/ApiProducts' => 'products/apiProducts',
+    'products/Products' => 'products/products',
     'products/OneProduct/([0-9]+)' => 'products/oneProduct/$1',
     'products/list' => 'products/list',
     'products/OneCategory/([a-z]+)' => 'products/oneCategory/$1',
