@@ -14,9 +14,10 @@ class Product
     public function getProductsList(): Product
     {
         $db = $this->dbConnection();
-        $result = $db->query('SELECT id, name, description, price, image FROM products');
-        $result->execute();
-        $this->productsList = $result->fetchAll();
+        $data = $db->query('SELECT id, name, description, price, image FROM products');
+        $data->setFetchMode(\PDO::FETCH_ASSOC);
+        $data->execute();
+        $this->productsList = $data->fetchAll();
 
         return $this;
     }
@@ -52,6 +53,7 @@ class Product
         }
         try {
             $data = $db->query("SELECT id, name, description, price, image FROM products WHERE image LIKE '%$img%' ");
+            $data->setFetchMode(\PDO::FETCH_ASSOC);
             $data->execute();
             $this->oneCategoryList = $data->fetchAll();
         } catch (Exception $e) {
