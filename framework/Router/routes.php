@@ -1,7 +1,6 @@
 <?php
 
 return [
- //actionList in ProductController
     'products/ApiProducts' => 'products/apiProducts',
     'products/Products' => 'products/products',
     'products/OneProduct/([0-9]+)' => 'products/oneProduct/$1',
@@ -10,5 +9,6 @@ return [
     'home' => 'home/index',
     'user/register' => 'user/register',
     'user/login' => 'user/login',
+    'user/logout' => 'user/logout',
     'cabinet' => 'cabinet/index',
 ];
