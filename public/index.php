@@ -6,9 +6,7 @@ error_reporting(E_ALL);
  require '../vendor/autoload.php';
 
  use Framework\Router\Router;
-use Framework\Session\Session;
 
- Session::start();
  $router = new Router();
  $router->run();
 
