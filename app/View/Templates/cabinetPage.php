@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Main</title>
+    <title>Edit</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -20,6 +20,9 @@ include_once "../app/View/Layouts/commons/header.php";
         ?></div>
     <div class="col-md-1"></div>
     <div class="col-md-8">
+        <h2>Привіт, <?php echo $user['name'];?></h2>
+        <p><a href="/cabinet/edit">Редагувати дані</a></p>
+        <p><a href="/cabinet/history">Список покупок</a></p>
     </div>
     <div class="col-md-1">
     </div>
