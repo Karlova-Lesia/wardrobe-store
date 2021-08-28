@@ -2,12 +2,43 @@
 
 namespace App\Models;
 
-use Framework\Core\Controller;
+use Exception;
 use Framework\Database\Db;
 use Framework\Session\Session;
 
 class User
 {
+    public array $user;
+
+    /**
+     * @throws Exception
+     */
+    public function getUserById(int $id): User
+    {
+        $db = Db::getConnection();
+        if (!$id) {
+            throw new Exception("User with $id don`t found");
+        }
+        try {
+            $data = $db->query('SELECT * FROM users WHERE id =' . $id);
+            $data->setFetchMode(\PDO::FETCH_ASSOC);
+            $this->user = $data->fetch();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        return $this;
+    }
+
+    public static function edit(int $id, string $lastname, string $password): bool
+    {
+        $db = Db::getConnection();
+
+        $sql = "UPDATE users SET lastname = '$lastname', password = '$password' WHERE id = $id";
+        $result = $db->prepare($sql);
+
+        return $result->execute();
+    }
+
     public static function register(string $name, string $lastname, string $email, string $password): bool
     {
         $db = Db::getConnection();
@@ -40,7 +71,7 @@ class User
         $result = $db->prepare($sql);
         $result->execute();
 
-        return($result->fetchColumn());
+        return ($result->fetchColumn());
     }
 
     public static function checkPassword(string $password): bool
@@ -82,7 +113,7 @@ class User
         if ($_SESSION['user']) {
             return $_SESSION['user'];
         }
-        (new Controller())->redirect("/user/login");
+        return false;
     }
 
     /**
