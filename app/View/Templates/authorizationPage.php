@@ -31,24 +31,11 @@
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1"
                            value="<?php echo $password?>">
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Запам'ятай мене</label>
-                </div>
                 <div>
-                    <button name="submit" type="submit" class="btn btn-outline-secondary">Увійти</button>
+                    <button type="submit" class="btn btn-outline-secondary">Увійти</button>
                 </div>
                 <a class="link" href="/user/register">зареєструватись</a>
             </form>
-        </div>
-        <div class="col-md-2" style="margin-top: 150px; float: left;">
-                <?php if (isset($errors) && is_array($errors)) :?>
-                    <ul>
-                        <?php foreach ($errors as $error) :?>
-                            <li style="color: red;"><?php echo $error;?></li>
-                        <?php endforeach;?>
-                    </ul>
-                <?php endif;?>
         </div>
     </div>
     <?php
