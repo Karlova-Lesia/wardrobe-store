@@ -69,7 +69,7 @@
 <div class="container-fluid parent-div">
     <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
         <div
-                onClick='location.href="http://wardrobe.com/home"'
+                onClick='location.href="http://wardrobe.com"'
                 class="name-store child-div align-right"
         >
             <div>wardrobe</div>
