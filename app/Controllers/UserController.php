@@ -18,7 +18,7 @@ class UserController extends Controller
         $passwordConfirm = '';
         $errors = false;
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($this->getPost()) {
             $name = $_POST['name'];
             $lastname = $_POST['lastname'];
             $email = $_POST['email'];
@@ -52,7 +52,7 @@ class UserController extends Controller
 
             if ($errors == false) {
                 User::register($name, $lastname, $email, $password);
-                $this->redirect("/home");
+                $this->redirect("/");
             }
         }
         echo View::render('registrationPage', ['name' => $name, 'lastname' => $lastname,
@@ -67,30 +67,21 @@ class UserController extends Controller
     {
         $email = '';
         $password = '';
-        $errors = false;
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($this->getPost()) {
             $email = $_POST['email'];
             $password = $_POST['password'];
-
-            if (!User::checkEmail($email)) {
-                $errors[] = 'Неправильний формат email!';
-            }
-            if (!User::checkPassword($password)) {
-                $errors[] = 'Довжина пароля має сягати більше 7 символів!';
-            }
 
             $userId = User::checkUserData($email, $password);
 
             if ($userId === false) {
-                $errors[] = 'Неправильні дані для входу на сайт';
+                $this->redirect("/user/login");
             } else {
                 User::auth($userId);
                 $this->redirect("/cabinet");
             }
         }
-        echo View::render('authorizationPage', ['email' => $email, 'password' => $password,
-            'errors' => $errors]);
+        echo View::render('authorizationPage', ['email' => $email, 'password' => $password]);
     }
 
     /**
@@ -100,6 +91,6 @@ class UserController extends Controller
     {
         Session::start();
         Session::destroy();
-        $this->redirect('/home');
+        $this->redirect('/');
     }
 }
