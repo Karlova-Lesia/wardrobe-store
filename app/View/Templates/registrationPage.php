@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>authorization</title>
+    <title>registration</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -18,8 +18,8 @@ include_once "../app/View/Layouts/commons/header.php";
     <div class="col-md-2"><?php
         include_once "../app/View/Layouts/commons/navigation.php";
     ?></div>
-    <div class="col-md-3"></div>
-    <div class="col-md-4">
+    <div class="col-md-2"></div>
+    <div class="col-md-6 content">
         <form class="form"  method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Ім'я</label>
