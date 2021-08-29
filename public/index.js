@@ -13,13 +13,13 @@ async function getResponse()
                         `
         desc.innerHTML += `
                         <div id="desc">
-                             <div style = "margin-top: 300px; margin-bottom: 550px; padding-right: 50px;" >
+                             <div style = "margin-bottom: 700px; padding-right: 50px;" >
                                 ${products[key].name}<br>
                                 <div style = "color: dimgrey;">${products[key].description}<br>
                                     ${products[key].price} грн<br></div>
                                     <div>
-                                        <button type = "button" style = "width: 100px; 
-                                        height: 40px; border: 1px;">
+                                        <button onClick='location.href="http://wardrobe.com/cart/add/${products[key].id}"' 
+                                        type = "button" class="btn btn-outline-secondary btns">
                                             <span style = "vertical-align: inherit;">Додати в кошик</span>
                                         </button>
                                     </div>
