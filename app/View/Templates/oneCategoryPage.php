@@ -28,16 +28,17 @@ include_once "../app/View/Layouts/commons/header.php";
 
         <?php endforeach;?>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2" style="margin-top: 100px">
         <?php
 
         foreach ($oneCategoryList as $product) :?>
-            <div style="padding-top: 300px; padding-bottom: 450px; padding-right: 50px;">
+            <div style="padding-bottom: 700px; padding-right: 50px;">
                 <?php echo $product['name'];?><br>
                 <div style="color: dimgrey;"> <?php echo $product['description'];?><br>
                     <?php echo $product['price'];?> грн<br></div>
                 <div class="btn-group-vertical btn-group">
-                    <button type="button" class="btn btn-outline-secondary btns">
+                    <button onClick='location.href="http://wardrobe.com/cart/add/"<?php echo $product['id']?>'
+                            type="button" class="btn btn-outline-secondary btns">
           <span style="vertical-align: inherit"
           ><span style="vertical-align: inherit">Додати в кошик</span></span
           >
