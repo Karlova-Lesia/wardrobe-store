@@ -100,7 +100,6 @@ class User
      */
     public static function auth(string $userId): void
     {
-        Session::start();
         $_SESSION['user'] = $userId;
     }
 
@@ -109,7 +108,6 @@ class User
      */
     public static function checkLogged()
     {
-        Session::start();
         if ($_SESSION['user']) {
             return $_SESSION['user'];
         }
@@ -121,7 +119,6 @@ class User
      */
     public static function isGuest(): bool
     {
-        Session::start();
         return (!isset($_SESSION['user']));
     }
 }
