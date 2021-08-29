@@ -18,8 +18,8 @@
        <div class="col-md-2"><?php
            include_once "../app/View/Layouts/commons/navigation.php";
         ?></div>
-        <div class="col-md-3"></div>
-        <div class="col-md-4">
+        <div class="col-md-2"></div>
+        <div class="col-md-6 content">
             <form class="form" method="post" >
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -37,6 +37,7 @@
                 <a class="link" href="/user/register">зареєструватись</a>
             </form>
         </div>
+        <div class="col-md-2"></div>
     </div>
     <?php
     include_once "../app/View/Layouts/commons/footer.php";

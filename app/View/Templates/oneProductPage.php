@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Product</title>
+    <title>product</title>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -19,7 +19,7 @@ include_once "../app/View/Layouts/commons/header.php";
         include_once "../app/View/Layouts/commons/navigation.php";
         ?></div>
     <div class="col-md-2"></div>
-    <div class="col-md-6">
+    <div class="col-md-6 img">
             <div style="margin: 20px;"><img style="width: 600px;" src="<?php echo $product['image'];?>" alt="product">
             </div>
     </div>
