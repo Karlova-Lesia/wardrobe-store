@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="child-div icon align-right">
-            <button type="button" class="btn btn-outline-secondary">
+            <button onClick='location.href="http://wardrobe.com/cart"' type="button" class="btn btn-outline-secondary">
                 <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -94,6 +94,7 @@
                     ></path>
                 </svg>
                 <span class="visually-hidden">Button</span>
+                <span>(<?php echo \App\Models\Cart::countItems();?>)</span>
             </button>
         </div>
         <?php if (\App\Models\User::isGuest()) :?>
