@@ -9,6 +9,7 @@ class Product
 {
     public array $productsList;
     public array $oneCategoryList;
+    public array $products;
     public array $product;
 
     public function getProductsList(): Product
@@ -61,6 +62,22 @@ class Product
         }
         return $this;
     }
+
+    public function getProductsByIds(array $idsArray): Product
+    {
+        $db = Db::getConnection();
+
+        $idsString = implode(',', $idsArray);
+
+        $sql = "SELECT * FROM products WHERE id IN ($idsString)";
+        $data = $db->query($sql);
+        $data->setFetchMode(\PDO::FETCH_ASSOC);
+        $data->execute();
+        $this->products = $data->fetchAll();
+
+        return $this;
+    }
+
 
     private function dbConnection(): object
     {
