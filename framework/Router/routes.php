@@ -3,12 +3,11 @@
 return [
     '' => 'home/index',
     'products/ApiProducts' => 'products/apiProducts',
-    'products/Products' => 'products/products',
     'products/OneProduct/([0-9]+)' => 'products/oneProduct/$1',
     'products/list' => 'products/list',
     'products/OneCategory/([a-z]+)' => 'products/oneCategory/$1',
-    'user/register' => 'user/register',
     'user/login' => 'user/login',
+    'user/register' => 'user/register',
     'user/logout' => 'user/logout',
     'cabinet' => 'cabinet/index',
     'cabinet/edit' => 'cabinet/edit',
