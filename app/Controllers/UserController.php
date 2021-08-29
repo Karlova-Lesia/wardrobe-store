@@ -89,7 +89,6 @@ class UserController extends Controller
      */
     public function actionLogout(): void
     {
-        Session::start();
         Session::destroy();
         $this->redirect('/');
     }
