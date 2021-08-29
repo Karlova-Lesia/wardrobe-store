@@ -1,34 +1,18 @@
 <style>
-    .main-div {
-        height: 70px;
-        background: white;
-        white-space: nowrap;
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+    body {
+        margin-bottom: 130px;
+        background:#edeef0;
     }
     .child-div {
         display: inline-block;
-    }
-    .name-store {
-        font-family: Chilanka, sans-serif;
-        padding-right: 10%;
-        font-size: 40px;
-        width: 25%;
-    }
-    .content-addr-info {
-        color: dimgrey;
-        font-family: "JetBrains Mono Light", sans-serif;
-        font-size: 15px;
-    }
-    .align-color {
-        text-align: right;
-        color: dimgrey;
     }
     .parent-div {
         height: 80px;
         background: lightcoral;
-        white-space: nowrap;
-    }
-    .child-div {
-        display: inline-block;
     }
     .align-right {
         text-align: right;
@@ -39,9 +23,6 @@
         padding-right: 10%;
         font-size: 40px;
         width: 25%;
-    }
-    .categories {
-        font-size: 20px;
     }
     .search-block {
         width: 40%;
@@ -55,17 +36,8 @@
     li > a {
         background-color: lightgrey !important;
     }
-    .wrapper {
-        display: inline-block;
-        width: 100%;
-    }
-    .btn-group {
-        width: 100%;
-    }
-    .btns {
-        height: 60px;
-    }
 </style>
+<div class="fixed-top">
 <div class="container-fluid parent-div">
     <nav class="bd-subnavbar py-2" aria-label="Secondary navigation">
         <div
@@ -191,4 +163,5 @@
             </div>
         <?php endif;?>
     </nav>
+</div>
 </div>

@@ -1,3 +1,22 @@
+<style>
+    .main-div {
+        height: 70px;
+        background: white;
+        white-space: nowrap;
+        position: absolute;
+        bottom: 0;
+    }
+    .content-addr-info {
+        color: dimgrey;
+        font-family: "JetBrains Mono Light", sans-serif;
+        font-size: 15px;
+    }
+    .align-color {
+        text-align: right;
+        color: dimgrey;
+    }
+</style>
+
 <div style="margin: 40px;" class="container-fluid main-div">
     <div class="row">
         <div class="name-store child-div col-3 align-color">
@@ -19,4 +38,3 @@
         </div>
     </div>
 </div>
-
