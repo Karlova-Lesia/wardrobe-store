@@ -8,6 +8,7 @@ return [
     'products/OneCategory/([a-z]+)' => 'products/oneCategory/$1',
     'cart' => 'cart/index',
     'cart/add/([0-9]+)' => 'cart/add/$1',
+    'cart/delete/([0-9]+)' => 'cart/delete/$1',
     'user/login' => 'user/login',
     'user/register' => 'user/register',
     'user/logout' => 'user/logout',
