@@ -7,13 +7,10 @@ async function getResponse()
 
     for (let key in products) {
         img.innerHTML += `
-                        <div class = "col-md-6" id ="img" style="margin: 20px;">
                             <img style="width: 600px;" src = "${products[key].image}" alt = ""/>
-                        </div>
                         `
         desc.innerHTML += `
-                        <div id="desc">
-                             <div style = "margin-bottom: 700px; padding-right: 50px;" >
+                             <div style = "padding-bottom: 750px; padding-right: 50px;" >
                                 ${products[key].name}<br>
                                 <div style = "color: dimgrey;">${products[key].description}<br>
                                     ${products[key].price} грн<br></div>
@@ -24,7 +21,6 @@ async function getResponse()
                                         </button>
                                     </div>
                                 </div>
-                        </div >
                         `
     }
 }
