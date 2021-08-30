@@ -37,7 +37,7 @@ include_once "../app/View/Layouts/commons/header.php";
                 <div style="color: dimgrey;"> <?php echo $product['description'];?><br>
                     <?php echo $product['price'];?> грн<br></div>
                 <div class="btn-group-vertical btn-group">
-                    <button onClick='location.href="http://wardrobe.com/cart/add/"<?php echo $product['id']?>'
+                    <button onClick='location.href="http://wardrobe.com/cart/add/<?php echo $product['id'];?>"'
                             type="button" class="btn btn-outline-secondary btns">
           <span style="vertical-align: inherit"
           ><span style="vertical-align: inherit">Додати в кошик</span></span
