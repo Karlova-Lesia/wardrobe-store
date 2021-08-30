@@ -9,6 +9,7 @@ class Product
 {
     public array $productsList;
     public array $oneCategoryList;
+    public array $products;
     public array $product;
 
     public function getProductsList(): Product
@@ -32,7 +33,7 @@ class Product
             throw new Exception("Product with $id don`t found");
         }
         try {
-            $data = $db->query('SELECT id, name, description, price, image FROM products WHERE id = ' . $id);
+            $data = $db->query("SELECT id, name, description, price, image FROM products WHERE id =  $id");
             $data->setFetchMode(\PDO::FETCH_ASSOC);
             $this->product = $data->fetch();
         } catch (Exception $e) {
@@ -59,6 +60,21 @@ class Product
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+        return $this;
+    }
+
+    public function getProductsByIds(array $idsArray): Product
+    {
+        $db = Db::getConnection();
+
+        $idsString = implode(',', $idsArray);
+
+        $sql = "SELECT * FROM products WHERE id IN ($idsString)";
+        $data = $db->query($sql);
+        $data->setFetchMode(\PDO::FETCH_ASSOC);
+        $data->execute();
+        $this->products = $data->fetchAll();
+
         return $this;
     }
 

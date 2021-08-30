@@ -19,8 +19,8 @@ include_once "../app/View/Layouts/commons/header.php";
         include_once "../app/View/Layouts/commons/navigation.php";
         ?></div>
     <div class="col-md-2"></div>
-    <div class="col-md-6 img" id="img"></div>
-    <div class="col-md-2" id="desc"></div>
+    <div class="col-md-6" id="img"></div>
+    <div class="col-md-2" id="desc" style="margin-top: 100px"></div>
 </div>
 <?php
 include_once "../app/View/Layouts/commons/footer.php";
