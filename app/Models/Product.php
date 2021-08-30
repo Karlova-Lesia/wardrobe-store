@@ -11,6 +11,7 @@ class Product
     public array $oneCategoryList;
     public array $products;
     public array $product;
+    public array $search;
 
     public function getProductsList(): Product
     {
@@ -74,6 +75,18 @@ class Product
         $data->setFetchMode(\PDO::FETCH_ASSOC);
         $data->execute();
         $this->products = $data->fetchAll();
+
+        return $this;
+    }
+    public function getResultSearch(string $search): Product
+    {
+        $db = Db::getConnection();
+
+        $sql = "SELECT * FROM products WHERE name LIKE '%$search%'";
+        $data = $db->query($sql);
+        $data->setFetchMode(\PDO::FETCH_ASSOC);
+        $data->execute();
+        $this->search = $data->fetch();
 
         return $this;
     }
