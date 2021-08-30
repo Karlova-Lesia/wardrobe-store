@@ -14,7 +14,11 @@ class CartController extends Controller
         Cart::addProduct($id);
 
         $referrer = $_SERVER['HTTP_REFERER'];
-        $this->redirect("$referrer");
+        if ($referrer === 'http://wardrobe.com/products/search') {
+            $this->redirect("/products/list");
+        } else {
+            $this->redirect("$referrer");
+        }
     }
 
     public function actionIndex(): void
