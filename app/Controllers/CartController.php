@@ -17,7 +17,7 @@ class CartController extends Controller
         $this->redirect("$referrer");
     }
 
-    public function actionIndex()
+    public function actionIndex(): void
     {
         $productsInCart = Cart::getProducts();
         $totalPrice = 0;
@@ -31,5 +31,11 @@ class CartController extends Controller
 
         echo View::render('cartPage', ['products' => $products, 'totalPrice' => $totalPrice,
             'productsInCart' => $productsInCart]);
+    }
+
+    public function actionDelete(int $id): void
+    {
+        Cart::deleteProduct($id);
+        $this->redirect("/cart");
     }
 }
