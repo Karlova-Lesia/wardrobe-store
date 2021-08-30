@@ -33,7 +33,7 @@ class Product
             throw new Exception("Product with $id don`t found");
         }
         try {
-            $data = $db->query('SELECT id, name, description, price, image FROM products WHERE id = ' . $id);
+            $data = $db->query("SELECT id, name, description, price, image FROM products WHERE id =  $id");
             $data->setFetchMode(\PDO::FETCH_ASSOC);
             $this->product = $data->fetch();
         } catch (Exception $e) {
@@ -77,7 +77,6 @@ class Product
 
         return $this;
     }
-
 
     private function dbConnection(): object
     {
