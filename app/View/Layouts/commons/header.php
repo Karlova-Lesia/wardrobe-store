@@ -54,9 +54,12 @@
         >
             Каталог
         </button>
-        <div class="child-div search-block align-right">
+        <div class="child-div search-block">
             <div class="input-group w-50 search">
-                <button type="button" class="btn btn-outline-secondary">
+                <form method="post" class="input-group mb-3" action="/products/search">
+                <button
+                        type="submit"
+                        class="btn btn-outline-secondary">
                     <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -72,15 +75,19 @@
                     <span class="visually-hidden">Button</span>
                 </button>
                 <input
+                        name="search"
                         type="text"
                         class="form-control"
                         placeholder="Пошук ..."
                         aria-label="Input group example"
                 />
+                </form>
             </div>
         </div>
         <div class="child-div icon align-right">
-            <button onClick='location.href="http://wardrobe.com/cart"' type="button" class="btn btn-outline-secondary">
+            <button
+                    onClick='location.href="http://wardrobe.com/cart"'
+                    type="button" class="btn btn-outline-secondary">
                 <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
