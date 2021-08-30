@@ -3,6 +3,7 @@
 return [
     '' => 'home/index',
     'products/ApiProducts' => 'products/apiProducts',
+    'products/search' => 'products/search',
     'products/OneProduct/([0-9]+)' => 'products/oneProduct/$1',
     'products/list' => 'products/list',
     'products/OneCategory/([a-z]+)' => 'products/oneCategory/$1',
