@@ -63,7 +63,11 @@ class Cart
     public static function deleteProduct(int $id): void
     {
         $productsInCart = self::getProducts();
-        unset($productsInCart[$id]);
+        if ($productsInCart[$id] === 1) {
+            unset($productsInCart[$id]);
+        } else {
+            --$productsInCart[$id];
+        }
         $_SESSION['products'] = $productsInCart;
     }
 }
