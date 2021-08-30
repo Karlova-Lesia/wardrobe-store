@@ -36,4 +36,16 @@ class ProductsController extends Controller
     {
         echo json_encode((new Product())->getProductsList()->productsList);
     }
+
+    public function actionSearch(): void
+    {
+        $search = '';
+        $product = [];
+
+        if ($this->getPost()) {
+            $search = $_POST['search'];
+            $product = (new Product())->getResultSearch($search)->search;
+        }
+        echo View::render('searchProductPage', ['product' => $product, 'search' => $search]);
+    }
 }
